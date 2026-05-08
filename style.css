@@ -137,10 +137,10 @@ input, select, textarea {
 
 /* Splash logo image */
 .splash-logo {
-  width: min(360px, 60vw);
+  width: min(560px, 60vw);
   opacity: 0;
   transform: scale(0.85);
-  animation: splashLogoIn 0.7s var(--ease-out) 0.2s forwards;
+  animation: splashLogoIn 0.9s var(--ease-out) 0.5s forwards;
 }
 
 /* Fallback text logo (shown if image missing) */
