@@ -9,7 +9,7 @@
 :root {
   /* Core palette */
   --black:       #0D0D0D;
-  --off-white:   #FAFAFA;
+  --off-white:   #000000;
   --white:       #FFFFFF;
   --crimson:     #C8102E;   /* Main accent — change hex to adjust brand color */
   --crimson-dark:#A00D24;
