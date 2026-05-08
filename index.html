@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rouge — Premium Apparel</title>
+  <meta name="description" content="Rouge — Bold. Minimal. Unapologetic." />
+
+  <!-- ============================================================
+       FONTS — Playfair Display (editorial serif) + DM Sans (body)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SPLASH SCREEN
+       Shown on first load, animates out before main site appears.
+       To disable: add class "hidden" to #splash in JS or CSS.
+       ============================================================ -->
+  <div id="splash">
+    <div class="splash-inner">
+      <!-- Swap 'image/logo.png' for your own logo file -->
+      <img src="image/logo.png" alt="Rouge Logo" class="splash-logo" id="splashLogo" />
+
+      <!-- Fallback text logo shown if image fails to load -->
+      <div class="splash-wordmark" id="splashWordmark">ROUGE</div>
+
+      <div class="splash-bar"></div>
+    </div>
+  </div>
+  <!-- END SPLASH -->
+
+
+  <!-- ============================================================
+       MAIN SITE WRAPPER — hidden until splash finishes
+       ============================================================ -->
+  <div id="mainSite" class="site-hidden">
+
+    <!-- ============================================================
+         NAVIGATION
+         ============================================================ -->
+    <header id="siteHeader">
+      <nav class="nav-container">
+
+        <!-- Logo: top-left. Swap path to change logo -->
+        <a href="#" class="nav-logo" aria-label="Rouge Home">
+          <img src="image/logo.png" alt="Rouge" class="nav-logo-img" id="navLogoImg" />
+          <span class="nav-logo-text" id="navLogoText">ROUGE</span>
+        </a>
+
+        <!-- Desktop navigation links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#shop" class="nav-link">Shop</a></li>
+          <li><a href="#collections" class="nav-link">Collections</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+
+        <!-- Right side: search + cart -->
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="searchToggle" aria-label="Toggle Search">
+            <!-- Search icon (SVG) -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+
+          <button class="nav-icon-btn cart-btn" id="cartToggle" aria-label="Open Cart">
+            <!-- Bag icon (SVG) -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <!-- Cart item count badge -->
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+
+          <!-- Hamburger menu for mobile -->
+          <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </nav>
+
+      <!-- Search bar (toggles open/closed) -->
+      <div class="search-bar" id="searchBar">
+        <input type="text" placeholder="Search products…" id="searchInput" autocomplete="off" />
+        <button class="search-close" id="searchClose" aria-label="Close Search">✕</button>
+      </div>
+
+      <!-- Mobile menu drawer -->
+      <div class="mobile-menu" id="mobileMenu">
+        <ul>
+          <li><a href="#shop" class="nav-link" id="mLink1">Shop</a></li>
+          <li><a href="#collections" class="nav-link" id="mLink2">Collections</a></li>
+          <li><a href="#about" class="nav-link" id="mLink3">About</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- END NAV -->
+
+
+    <!-- ============================================================
+         HERO SECTION
+         Edit the headline and subtext directly here.
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">New Collection</p>
+        <h1 class="hero-headline">
+          <span class="hero-line">Wear</span>
+          <span class="hero-line hero-line--accent">Without</span>
+          <span class="hero-line">Apology.</span>
+        </h1>
+        <p class="hero-sub">Premium streetwear built to turn heads.</p>
+        <a href="#shop" class="btn btn--primary">Shop Now</a>
+      </div>
+      <div class="hero-graphic">
+        <div class="hero-circle"></div>
+        <div class="hero-stripe"></div>
+      </div>
+    </section>
+    <!-- END HERO -->
+
+
+    <!-- ============================================================
+         ANNOUNCEMENT TICKER
+         Edit the ticker text below. Duplicate <span> items to add more.
+         ============================================================ -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Free Shipping on Orders Over $50</span>
+        <span>·</span>
+        <span>New Drops Every Friday</span>
+        <span>·</span>
+        <span>Premium Quality Guaranteed</span>
+        <span>·</span>
+        <span>Free Shipping on Orders Over $50</span>
+        <span>·</span>
+        <span>New Drops Every Friday</span>
+        <span>·</span>
+        <span>Premium Quality Guaranteed</span>
+        <span>·</span>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         SHOP / PRODUCT GRID
+         Products are rendered by JavaScript from the `products` array
+         in script.js. Edit that array to add/remove products.
+         ============================================================ -->
+    <section class="shop-section" id="shop">
+      <div class="section-header">
+        <h2 class="section-title">The Collection</h2>
+        <div class="filter-row" id="filterRow">
+          <!-- Filter buttons injected by JS -->
+        </div>
+      </div>
+
+      <!-- Product cards are injected here by script.js -->
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+    <!-- END SHOP -->
+
+
+    <!-- ============================================================
+         COLLECTIONS BANNER
+         ============================================================ -->
+    <section class="collections-banner" id="collections">
+      <div class="collection-card collection-card--dark">
+        <div class="collection-card-text">
+          <p class="collection-label">Drop 01</p>
+          <h3>Noir Series</h3>
+          <a href="#shop" class="btn btn--outline">Explore</a>
+        </div>
+      </div>
+      <div class="collection-card collection-card--red">
+        <div class="collection-card-text">
+          <p class="collection-label">Drop 02</p>
+          <h3>Rouge Series</h3>
+          <a href="#shop" class="btn btn--outline btn--outline-dark">Explore</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT STRIP
+         ============================================================ -->
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-text">
+          <h2>Built Different.</h2>
+          <p>Rouge was born from the belief that clothing should be a statement — not a compromise. Every piece is designed with obsessive attention to quality, fit, and finish. Printed on demand via Teespring, shipped worldwide.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Premium Cotton</span></div>
+          <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Designs Available</span></div>
+          <div class="stat"><span class="stat-num">WW</span><span class="stat-label">Worldwide Shipping</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">ROUGE</span>
+          <p>Bold. Minimal. Unapologetic.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#shop">All Products</a></li>
+            <li><a href="#collections">Collections</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Info</h4>
+          <ul>
+            <!-- Edit these links to point to your Teespring/policy pages -->
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <ul>
+            <!-- Edit with your social links -->
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">Twitter / X</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Rouge. All rights reserved. Fulfillment by Teespring.</p>
+      </div>
+    </footer>
+    <!-- END FOOTER -->
+
+  </div>
+  <!-- END MAIN SITE -->
+
+
+  <!-- ============================================================
+       CART SIDEBAR
+       Slides in from the right when cart icon is clicked.
+       ============================================================ -->
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close-btn" id="cartClose" aria-label="Close Cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items injected by JS -->
+      <div class="cart-empty" id="cartEmpty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <p>Your bag is empty.</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Overlay behind cart/checkout -->
+  <div class="overlay" id="overlay"></div>
+
+
+  <!-- ============================================================
+       PRODUCT QUICK-VIEW MODAL
+       Opens when a product card is clicked.
+       ============================================================ -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Product Details">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close Modal">✕</button>
+      <div class="modal-layout">
+        <div class="modal-image-wrap">
+          <img src="" alt="" id="modalImg" />
+        </div>
+        <div class="modal-info">
+          <p class="modal-category" id="modalCategory"></p>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-price" id="modalPrice"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+
+          <!-- Size selector — edit sizes to match your Teespring listings -->
+          <div class="option-group">
+            <label class="option-label">Size</label>
+            <div class="size-buttons" id="sizeButtons">
+              <button class="size-btn active" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+              <button class="size-btn" data-size="2XL">2XL</button>
+            </div>
+          </div>
+
+          <!-- Quantity -->
+          <div class="option-group">
+            <label class="option-label">Quantity</label>
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" aria-label="Decrease">−</button>
+              <span id="qtyDisplay">1</span>
+              <button class="qty-btn" id="qtyPlus" aria-label="Increase">+</button>
+            </div>
+          </div>
+
+          <button class="btn btn--primary btn--full" id="addToCartBtn">Add to Bag</button>
+
+          <!-- Teespring link fallback — edit href to your actual product URL -->
+          <a href="#" class="teespring-link" id="teespringLink" target="_blank" rel="noopener noreferrer">
+            View on Teespring →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       CHECKOUT MODAL
+       In-page checkout — no redirect. Collects order details.
+       On submit, you can wire this to your payment processor or
+       redirect to Teespring with cart data via URL params.
+       ============================================================ -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+    <div class="modal-box modal-box--checkout">
+      <button class="modal-close" id="checkoutModalClose" aria-label="Close Checkout">✕</button>
+
+      <!-- Step indicator -->
+      <div class="checkout-steps">
+        <div class="step active" id="step1Indicator"><span>1</span> Info</div>
+        <div class="step-line"></div>
+        <div class="step" id="step2Indicator"><span>2</span> Review</div>
+        <div class="step-line"></div>
+        <div class="step" id="step3Indicator"><span>3</span> Confirm</div>
+      </div>
+
+      <!-- ── STEP 1: Contact & Shipping Info ── -->
+      <div class="checkout-step" id="checkoutStep1">
+        <h3>Your Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Jane" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Doe" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="jane@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="address">Street Address</label>
+          <input type="text" id="address" placeholder="123 Main Street" autocomplete="street-address" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="New York" autocomplete="address-level2" />
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP / Postcode</label>
+            <input type="text" id="zip" placeholder="10001" autocomplete="postal-code" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" autocomplete="country-name">
+            <option value="">Select country…</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+            <option value="DE">Germany</option>
+            <option value="FR">France</option>
+            <!-- Add more countries as needed -->
+          </select>
+        </div>
+        <button class="btn btn--primary btn--full" id="toStep2Btn">Continue to Review →</button>
+      </div>
+
+      <!-- ── STEP 2: Order Review ── -->
+      <div class="checkout-step hidden" id="checkoutStep2">
+        <h3>Review Your Order</h3>
+        <div class="review-items" id="reviewItems"></div>
+        <div class="review-totals">
+          <div class="review-row"><span>Subtotal</span><span id="reviewSubtotal"></span></div>
+          <div class="review-row"><span>Shipping</span><span id="reviewShipping">Calculated at Teespring</span></div>
+          <div class="review-row review-row--total"><span>Total</span><span id="reviewTotal"></span></div>
+        </div>
+        <div class="review-note">
+          <p>🔒 Your order is fulfilled securely by <strong>Teespring</strong>. Clicking "Place Order" will complete your purchase.</p>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn--ghost" id="backToStep1Btn">← Back</button>
+          <button class="btn btn--primary" id="toStep3Btn">Place Order →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Confirmation ── -->
+      <div class="checkout-step hidden" id="checkoutStep3">
+        <div class="confirm-icon">✓</div>
+        <h3>Order Placed!</h3>
+        <p class="confirm-msg">Thank you, <strong id="confirmName"></strong>! Your order has been received. A confirmation will be sent to <strong id="confirmEmail"></strong>.</p>
+        <p class="confirm-note">Your items are being prepared by Teespring and will ship soon.</p>
+        <button class="btn btn--primary" id="confirmDoneBtn">Continue Shopping</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       TOAST NOTIFICATION
+       Appears briefly when items are added to cart.
+       ============================================================ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
