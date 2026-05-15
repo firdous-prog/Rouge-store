@@ -8,7 +8,7 @@
 /* ── CSS CUSTOM PROPERTIES (edit these to retheme the site) ─────── */
 :root {
   /* Core palette */
-  --black:       #0D0D0D;
+  --black:       #FFFFFF;
   --off-white:   #000000;
   --white:       #FFFFFF;
   --crimson:     #C8102E;   /* Main accent — change hex to adjust brand color */
